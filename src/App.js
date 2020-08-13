@@ -10,21 +10,24 @@ import NotFound from "./pages/404";
 import Private from "./pages/private";
 import "bootstrap/dist/css/bootstrap.css";
 import PrivateRoute from "./components/PrivateRoute";
+import FirebaseProvider from "./components/FirebaseProvider";
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route path="/registrasi" component={Registrasi} />
-        <Route path="/login" component={Login} />
-        <Route path="/forgotpass" component={ForgotPass} />
-        <PrivateRoute path="/" exact component={Private} />
-        <PrivateRoute path="/settings" component={Private} />
-        <PrivateRoute path="/produk" component={Private} />
-        <PrivateRoute path="/transaksi" component={Private} />
-        <Route component={NotFound} />
-      </Switch>
-    </Router>
+    <FirebaseProvider>
+      <Router>
+        <Switch>
+          <Route path="/registrasi" component={Registrasi} />
+          <Route path="/login" component={Login} />
+          <Route path="/forgotpass" component={ForgotPass} />
+          <PrivateRoute path="/" exact component={Private} />
+          <PrivateRoute path="/settings" component={Private} />
+          <PrivateRoute path="/produk" component={Private} />
+          <PrivateRoute path="/transaksi" component={Private} />
+          <Route component={NotFound} />
+        </Switch>
+      </Router>
+    </FirebaseProvider>
   );
 }
 
