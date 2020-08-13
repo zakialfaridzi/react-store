@@ -7,6 +7,7 @@ import Registrasi from "./pages/registrasi";
 import Login from "./pages/login/";
 import ForgotPass from "./pages/forgotpass";
 import NotFound from "./pages/404";
+import "bootstrap/dist/css/bootstrap.css";
 
 function App() {
   return (
