@@ -8,26 +8,36 @@ import Login from "./pages/login/";
 import ForgotPass from "./pages/forgotpass";
 import NotFound from "./pages/404";
 import Private from "./pages/private";
-import "bootstrap/dist/css/bootstrap.css";
 import PrivateRoute from "./components/PrivateRoute";
+// firebase context provider
 import FirebaseProvider from "./components/FirebaseProvider";
+// material ui components
+import CssBaseline from "@material-ui/core/CssBaseline";
+// themeprovider material ui
+import ThemeProvider from "@material-ui/styles/ThemeProvider";
+import theme from "./config/theme";
 
 function App() {
   return (
-    <FirebaseProvider>
-      <Router>
-        <Switch>
-          <Route path="/registrasi" component={Registrasi} />
-          <Route path="/login" component={Login} />
-          <Route path="/forgotpass" component={ForgotPass} />
-          <PrivateRoute path="/" exact component={Private} />
-          <PrivateRoute path="/settings" component={Private} />
-          <PrivateRoute path="/produk" component={Private} />
-          <PrivateRoute path="/transaksi" component={Private} />
-          <Route component={NotFound} />
-        </Switch>
-      </Router>
-    </FirebaseProvider>
+    <React.Fragment>
+      <CssBaseline />
+      <ThemeProvider theme={theme}>
+        <FirebaseProvider>
+          <Router>
+            <Switch>
+              <Route path="/registrasi" component={Registrasi} />
+              <Route path="/login" component={Login} />
+              <Route path="/forgotpass" component={ForgotPass} />
+              <PrivateRoute path="/" exact component={Private} />
+              <PrivateRoute path="/settings" component={Private} />
+              <PrivateRoute path="/produk" component={Private} />
+              <PrivateRoute path="/transaksi" component={Private} />
+              <Route component={NotFound} />
+            </Switch>
+          </Router>
+        </FirebaseProvider>
+      </ThemeProvider>
+    </React.Fragment>
   );
 }
 
