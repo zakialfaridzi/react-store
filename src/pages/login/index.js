@@ -48,13 +48,13 @@ function Login(props) {
   const validate = () => {
     const newError = { ...error };
     if (!form.email) {
-      newError.email = "Email is required!";
+      newError.email = "you forgot this or what?";
     } else if (!isEmail(form.email)) {
       newError.email = "Email is not valid!";
     }
 
     if (!form.password) {
-      newError.password = "Password is required!";
+      newError.password = "seriously? fill this please!";
     }
 
     return newError;

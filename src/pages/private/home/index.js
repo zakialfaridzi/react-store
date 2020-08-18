@@ -7,13 +7,6 @@ function Home() {
   return (
     <>
       <h1>Store Homepage</h1>
-      <Button
-        onClick={(e) => {
-          auth.signOut();
-        }}
-      >
-        Sign Out
-      </Button>
     </>
   );
 }
